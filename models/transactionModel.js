@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { TransactionStatus } = require("../enums/transaction.enum");
+const { TransactionStatus } = require("../enums/transactionEnum");
 
 const { Schema, model } = mongoose;
 
@@ -15,7 +15,7 @@ const transactionSchema = new Schema(
     },
     product_id: {
       type: String,
-      required: true,
+
     },
     status: {
       type: String,
