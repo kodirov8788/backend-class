@@ -3,7 +3,7 @@ const Client = require("../models/clientModel")
 const express = require('express');
 
 router.post("/create", async (req, res) => {
-    const { name, email, address, trip, number } = req.body;
+    const { name, email, address, trip, number, commit } = req.body;
 
     try {
         // Create a new client instance
@@ -12,7 +12,8 @@ router.post("/create", async (req, res) => {
             email,
             number,
             address,
-            trip
+            trip,
+            commit
         });
 
         await newClient.save();

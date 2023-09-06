@@ -14,11 +14,15 @@ const Client = new Schema({
     },
     address: {
         type: String,
-        required: true,
+        default: "",
+    },
+    commit: {
+        type: String,
+        default: "",
     },
     trip: {
         type: Object,
-        required: true
+        default: {}
     },
     number: {
         type: String,
