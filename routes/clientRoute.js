@@ -38,7 +38,18 @@ router.delete("/delete/:id", async (req, res) => {
     const clientid = req.params.id;
     try {
         const user = await Client.findByIdAndDelete(clientid);
-        res.status(200).send(`${user.username}ni o'chirildi`);
+        res.status(200).send(`${user.name}ni o'chirildi`);
+    } catch (error) {
+        return res.status(401).send(`Error bor`);
+    }
+});
+router.put("/makepayment/:id", async (req, res) => {
+    const clientid = req.params.id;
+    try {
+        const user = await Client.findById(clientid);
+        user.payment = true
+        await user.save()
+        res.status(200).send(`${user.name} to'lov qildi.`);
     } catch (error) {
         return res.status(401).send(`Error bor`);
     }
